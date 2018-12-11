@@ -1,0 +1,141 @@
+_model: page_html
+---
+title: Git Commands
+---
+body:
+
+<style type="text/css">
+body {
+    font-weight:500;
+}
+</style>
+
+<h5>git config</h5>
+<b>Usage: git config –global user.name “[name]”</b>
+<br>
+<b>Usage: git config –global user.email “[email address]”</b>
+<br><br>
+<p>This command sets the author name and email address respectively to be used with your commits.</p>
+
+<h5>git init</h5>
+<b>Usage: git init [repository name]</b>
+<br><br>
+<p>This command is used to start a new repository.</p>
+
+<h5>git clone</h5>
+<b>Usage: git clone [url]</b>
+<br><br>
+<p>This command is used to obtain a repository from an existing URL.</p>
+
+<h5>git add</h5>
+<b>Usage: git add [file]</b>
+<br><br>
+<p>This command adds a file to the staging area.</p>
+<b>Usage: git add *</b>
+<br><br>
+<p>This command adds one or more to the staging area.</p>
+
+<h5>git commit</h5>
+<b>Usage: git commit -m “[ Type in the commit message]”</b>
+<br><br>
+<p>This command records or snapshots the file permanently in the version history.</p>
+<b>Usage: git commit -a</b>
+<br><br>
+<p>This command commits any files you’ve added with the git add command and also commits any files you’ve changed since then.</p>
+
+<h5>git diff</h5>
+<b>Usage: git diff</b>
+<br><br>
+<p>This command shows the file differences which are not yet staged.</p>
+<b>Usage: git diff –staged</b>
+<br><br>
+<p>This command shows the differences between the files in the staging area and the latest version present.</p>
+<b>Usage: git diff [first branch] [second branch]</b>
+<br><br>
+<p>This command shows the differences between the two branches mentioned.</p>
+
+<h5>git reset</h5>
+<b>Usage: git reset [file]</b>
+<br><br>
+<p>This command unstages the file, but it preserves the file contents.</p>
+<b>Usage: git reset [commit]</b>
+<br><br>
+<p>This command undoes all the commits after the specified commit and preserves the changes locally.</p>
+<b>Usage: git reset –hard [commit]</b>
+<br><br>
+<p>This command discards all history and goes back to the specified commit.</p>
+
+<h5>git status</h5>
+<b>Usage: git status</b>
+<br><br>
+<p>This command lists all the files that have to be committed.</p>
+
+<h5>git log</h5>
+<b>Usage: git log</b>
+<br><br>
+<p>This command is used to list the version history for the current branch.</p>
+<b>Usage: git log –follow[file]</b>
+<br><br>
+<p>This command lists version history for a file, including the renaming of files also.</p>
+
+<h5>git show</h5>
+<b>Usage: git show [commit]</b>
+<br><br>
+<p>This command shows the metadata and content changes of the specified commit.</p>
+
+<h5>git tag</h5>
+<b>Usage: git tag [commitID]</b>
+<br><br>
+<p>This command is used to give tags to the specified commit.</p>
+
+<h5>git branch</h5>
+<b>Usage: git branch</b>
+<br><br>
+<p>This command lists all the local branches in the current repository.</p>
+<b>Usage: git branch [branch name]</b>
+<br><br>
+<p>This command creates a new branch.</p>
+<b>Usage: git branch -d [branch name]</b>
+<br><br>
+<p>This command deletes the feature branch.</p>
+
+<h5>git checkout</h5>
+<b>Usage: git checkout [branch name]</b>
+<br><br>
+<p>This command is used to switch from one branch to another.</p>
+<b>Usage: git checkout -b [branch name]</b>
+<br><br>
+<p>This command creates a new branch and also switches to it.</p>
+
+<h5>git merge</h5>
+<b>Usage: git merge [branch name]</b>
+<br><br>
+<p>This command merges the specified branch’s history into the current branch.</p>
+
+<h5>git remote</h5>
+<b>Usage: git remote add [variable name] [Remote Server Link]</b>
+<br><br>
+<p>This command is used to connect your local repository to the remote server.</p>
+
+<h5>git push</h5>
+<b>Usage: git push [variable name] master</b>
+<br><br>
+<p>This command sends the committed changes of master branch to your remote repository.</p>
+<b>Usage: git push [variable name] [branch]</b>
+<br><br>
+<p>This command sends the branch commits to your remote repository.</p>
+<b>Usage: git push –all [variable name]</b>
+<br><br>
+<p>This command pushes all branches to your remote repository.</p>
+<b>Usage: git push [variable name] :[branch name]</b>
+<br><br>
+<p>This command deletes a branch on your remote repository.</p>
+
+<h5>git pull</h5>
+<b>Usage:  git pull [Repository Link]</b>
+<br><br>
+<p>This command fetches and merges changes on the remote server to your working directory.</p>
+
+
+---
+_template: page_one_column.html

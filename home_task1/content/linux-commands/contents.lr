@@ -1,0 +1,63 @@
+_model: page_html
+---
+title: Linux Commands
+---
+body:
+
+<style type="text/css">
+body {
+    font-weight:500;
+}
+</style>
+
+<br>
+<h3>Basic Commands</h3>
+
+<p>
+<b>1. pwd</b> — When you first open the terminal, you are in the home directory of your user. To know which directory you are in, you can use the <b>“pwd”</b> command. It gives us the absolute path, which means the path that starts from the root. The root is the base of the Linux file system. It is denoted by a forward slash( / ). The user directory is usually something like "/home/username".
+</p>
+<p>
+<b>2. ls</b> — Use the <b>"ls"</b> command to know what files are in the directory you are in. You can see all the hidden files by using the command <b>“ls -a”</b>.
+</p>
+<p>
+<b>3. cd</b> — Use the <b>"cd"</b> command to go to a directory. For example, if you are in the home folder, and you want to go to the downloads folder, then you can type in <b>“cd Downloads”</b>. Remember, this command is case sensitive, and you have to type in the name of the folder exactly as it is. But there is a problem with these commands. Imagine you have a folder named <b>“Raspberry Pi”</b>. In this case, when you type in <b>“cd Raspberry Pi”</b>, the shell will take the second argument of the command as a different one, so you will get an error saying that the directory does not exist. Here, you can use a backward slash. That is, you can use <b>“cd Raspberry\ Pi”</b> in this case. Spaces are denoted like this: If you just type <b>“cd”</b> and press enter, it takes you to the home directory. To go back from a folder to the folder before that, you can type <b>“cd ..”</b> . The two dots represent back.
+</p>
+<p>
+<b>4. mkdir & rmdir</b> — Use the <b>mkdir</b> command when you need to create a folder or a directory. For example, if you want to make a directory called “DIY”, then you can type <b>“mkdir DIY”</b>. Remember, as told before, if you want to create a directory named “DIY Hacking”, then you can type “mkdir <b>DIY\ Hacking</b>”. Use <b>rmdir</b> to delete a directory. But <b>rmdir</b> can only be used to delete an empty directory. To delete a directory containing files, use <b>rm</b>.
+</p>
+<p>
+<b>5. rm</b> - Use the <b>rm</b> command to delete files and directories.  Use <b>"rm -r"</b> to delete just the directory. It deletes both the folder and the files it contains when using only the <b>rm</b> command.
+</p>
+<p>
+<b>6. touch</b> — The <b>touch</b> command is used to create a file. It can be anything, from an empty txt file to an empty zip file. For example, <b>“touch new.txt”</b>.
+<p>
+<b>7. man & --help</b> — To know more about a command and how to use it, use the <b>man</b> command. It shows the manual pages of the command. For example, <b>“man cd”</b> shows the manual pages of the <b>cd</b> command. Typing in the command name and the argument helps it show which ways the command can be used (e.g., <b>cd –help</b>).
+</p>
+<p>
+<b>8. cp</b> — Use the <b>cp</b> command to copy files through the command line. It takes two arguments: The first is the location of the file to be copied, the second is where to copy.
+</p>
+<p>
+<b>9. mv</b> — Use the <b>mv</b> command to move files through the command line. We can also use the <b>mv</b> command to rename a file. For example, if we want to rename the file <b>“text”</b> to <b>“new”</b>, we can use <b>“mv text new”</b>. It takes the two arguments, just like the cp command.
+</p>
+<p>
+<b>10. locate</b> — The <b>locate</b> command is used to locate a file in a Linux system, just like the search command in Windows. This command is useful when you don't know where a file is saved or the actual name of the file. Using the -i argument with the command helps to ignore the case (it doesn't matter if it is uppercase or lowercase). So, if you want a file that has the word “hello”, it gives the list of all the files in your Linux system containing the word "hello" when you type in <b>“locate -i hello”</b>. If you remember two words, you can separate them using an asterisk (*). For example, to locate a file containing the words "hello" and "this", you can use the command <b>“locate -i *hello*this”</b>.
+</p>
+<br>
+<h3>Intermediate Commands</h3>
+<p>
+<b>1. echo</b> — The <b>"echo"</b> command helps us move some data, usually text into a file. For example, if you want to create a new text file or add to an already made text file, you just need to type in, <b>“echo hello, my name is alok >> new.txt”</b>. You do not need to separate the spaces by using the backward slash here, because we put in two triangular brackets when we finish what we need to write.
+</p>
+<p>
+<b>2. cat</b> — Use the <b>cat</b> command to display the contents of a file. It is usually used to easily view programs.
+</p>
+<p>
+<b>3. nano, vi, jed</b> — <b>nano</b> and <b>vi</b> are already installed text editors in the Linux command line. The <b>nano</b> command is a good text editor that denotes keywords with color and can recognize most languages. And <b>vi</b> is simpler than <b>nano</b>. You can create a new file or modify a file using this editor. For example, if you need to make a new file named <b>"check.txt"</b>, you can create it by using the command <b>“nano check.txt”</b>. You can save your files after editing by using the sequence Ctrl+X, then Y (or N for no). In my experience, using <b>nano</b> for HTML editing doesn't seem as good, because of its color, so I recommend <b>jed</b> text editor. We will come to installing packages soon.
+</p>
+<p>
+<b>4. sudo</b> — A widely used command in the Linux command line, <b>sudo</b> stands for "SuperUser Do". So, if you want any command to be done with administrative or root privileges, you can use the <b>sudo</b> command. For example, if you want to edit a file like <b>viz. alsa-base.conf</b>, which needs root permissions, you can use the command – <b>sudo nano alsa-base.conf</b>. You can enter the root command line using the command <b>“sudo bash”</b>, then type in your user password. You can also use the command <b>“su”</b> to do this, but you need to set a root password before that. For that, you can use the command <b>“sudo passwd”</b>(not misspelled, it is <b>passwd</b>). Then type in the new root password.
+</p>
+<p>
+<b>5. df</b> — Use the <b>df</b> command to see the available disk space in each of the partitions in your system. You can just type in <b>df</b> in the command line and you can see each mounted partition and their used/available space in % and in KBs. If you want it shown in megabytes, you can use the command <b>“df -m”</b>.
+</p>
+---
+_template: page_one_column.html
