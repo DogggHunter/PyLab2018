@@ -1,0 +1,163 @@
+_model: page_html
+---
+title: PyCharm HotKeys
+---
+body:
+
+<style type="text/css">
+body {
+    font-weight:500;
+}
+</style>
+<h3>Editing</h3>
+<p><b>Ctrl + Space - </b>Basic code completion (the nameof any class, method or variable)</p>
+<p><b>Ctrl + Alt + Space - </b>Class name completion (the name of any project class independently of current imports)</p> 
+<p><b>Ctrl + Shift + Enter - </b>Complete statement</p>
+<p><b>Ctrl + P - </b>Parameter info (within method call arguments)</p>
+<p><b>Ctrl + Q - </b>Quick documentation lookup</p>
+<p><b>Shift + F1 - </b>External Doc</p>
+<p><b>Ctrl + mouse over code - </b>Brief Info</p>
+<p><b>Ctrl + F1 - </b>Show descriptions of error or warning at caret</p>
+<p><b>Alt + Insert - </b>Generate code...</p>
+<p><b>Ctrl + O - </b>Override methods</p>
+<p><b>Ctrl + Alt + T - </b>Surround with...</p>
+<p><b>Ctrl + / - </b>Comment/uncomment with line comment</p>
+<p><b>Ctrl + Shift + / - </b>Comment/uncomment with block comment</p>
+<p><b>Ctrl + W - </b>Select successively increasing code blocks</p>
+<p><b>Ctrl + Shift + W - </b>Decrease current selection to previous state</p>
+<p><b>Ctrl + Shift + ] - </b>Select till code block end</p>
+<p><b>Ctrl + Shift + [ - </b>Select till code block start</p>
+<p><b>Alt + Enter - </b>Show intention actions and quick-fixes</p>
+<p><b>Ctrl + Alt + L - </b>Reformat code</p>
+<p><b>Ctrl + Alt + O - </b>Optimize imports</p>
+<p><b>Ctrl + Alt + I - </b>Auto-indent line(s)</p>
+<p><b>Tab - </b>Indent selected lines</p>
+<p><b>Shift + Tab - </b>Unindent selected lines</p>
+<p><b>Ctrl + X , Shift + Delete - </b>Cut current line or selected block to clipboard</p>
+<p><b>Ctrl + C , Ctrl + Insert - </b>Copy current line or selected block to clipboard</p>
+<p><b>Ctrl + V , Shift + Insert - </b>Paste from clipboard</p>
+<p><b>Ctrl + Shift + V - </b>Paste from recent buffers...</p>
+<p><b>Ctrl + D - </b>Duplicate current line or selected block</p>
+<p><b>Ctrl + Y - </b>Delete line at caret</p>
+<p><b>Ctrl + Shift + J - </b>Smart line join</p>
+<p><b>Ctrl + Enter - </b>Smart line split</p>
+<p><b>Shift + Enter - </b>Start new line</p>
+<p><b>Ctrl + Shift + U - </b>Toggle case for word at caret or selected block</p>
+<p><b>Ctrl + Delete - </b>Delete to word end</p>
+<p><b>Ctrl + Backspace - </b>Delete to word start</p>
+<p><b>Ctrl + NumPad+ - </b>Expand code block</p>
+<p><b>Ctrl + NumPad- - </b>Collapse code block</p>
+<p><b>Ctrl + Shift + NumPad+ - </b>Expand all</p>
+<p><b>Ctrl + Shift + NumPad- - </b>Collapse all</p>
+<p><b>Ctrl + F4 - </b>Close active editor tab</p>
+<br>
+
+<h3>Running</h3>
+<p><b>Alt + Shift + F10 - </b>Select configuration and run</p>
+<p><b>Alt + Shift + F9 - </b>Select configuration and debug</p>
+<p><b>Shift + F10 - </b>Run</p>
+<p><b>Shift + F9 - </b>Debug</p>
+<p><b>Ctrl + Shift + F10 - </b>Run context configuration from editor</p>
+<p><b>Ctrl + Alt + R - </b>Run manage.py task</p>
+<br>
+
+<h3>Debugging</h3>
+<p><b>F8 / F7 - </b>Step over/into</p>
+<p><b>Shift + F8 - </b>Step out</p>
+<p><b>Alt + F9 - </b>Run to cursor</p>
+<p><b>Alt + F8 - </b>Evaluate expression</p>
+<p><b>Ctrl + Alt + F8 - </b>Quick evaluate expression</p>
+<p><b>F9 - </b>Resume program</p>
+<p><b>Ctrl + F8 - </b>Toggle breakpoint</p>
+<p><b>Ctrl + Shift + F8 - </b>View breakpoints</p>
+<br>
+
+<h3>Navigation</h3>
+<p><b>Ctrl + N - </b>Go to class</p>
+<p><b>Ctrl + Shift + N - </b>Go to file</p>
+<p><b>Ctrl + Alt + Shift + N - </b>Go to symbol</p>
+<p><b>Alt + Right - </b>Go to next editor tab</p>
+<p><b>Alt + Left - </b>Go to previous editor tab</p>
+<p><b>F12 - </b>Go back to previous tool window</p>
+<p><b>Esc - </b>Go to editor (from tool window)</p>
+<p><b>Shift + Esc - </b>Hide active or last active window</p>
+<p><b>Ctrl + Shift + F4 - </b>Close active run/messages/find/... tab</p>
+<p><b>Ctrl + G - </b>Go to line</p>
+<p><b>Ctrl + E - </b>Recent files popup</p>
+<p><b>Ctrl + Alt + Right - </b>Navigate forward</p>
+<p><b>Ctrl + Alt + Left - </b>Navigate back</p>
+<p><b>Ctrl + Shift + Backspace - </b>Navigate to last edit location</p>
+<p><b>Alt + F1 - </b>Select current file or symbol in any view</p>
+<p><b>Ctrl + B , Ctrl + Click - </b>Go to declaration</p>
+<p><b>Ctrl + Alt + B - </b>Go to implementation(s)</p>
+<p><b>Ctrl + Shift + I - </b>Open quick definition lookup</p>
+<p><b>Ctrl + Shift + B - </b>Go to type declaration</p>
+<p><b>Ctrl + U - </b>Go to super-method/super-class</p>
+<p><b>Alt + Up / Down - </b>Go to previous/next method</p>
+<p><b>Ctrl + ] / [ - </b>Move to code block end/start</p>
+<p><b>Ctrl + F12 - </b>File structure popup</p>
+<p><b>Ctrl + H - </b>Type hierarchy</p>
+<p><b>Ctrl + Shift + H - </b>Method hierarchy</p>
+<p><b>Ctrl + Alt + H - </b>Call hierarchy</p>
+<p><b>F2 / Shift + F2 - </b>Next/previous highlighted error</p>
+<p><b>F4 - </b> Edit source</p>
+<p><b>Ctrl + Enter - </b>View source</p>
+<p><b>Alt + Home - </b>Show navigation bar</p>
+<p><b>F11 - </b>Toggle bookmark</p>
+<p><b>Ctrl + Shift + F11 - </b>Toggle bookmark with mnemonic</p>
+<p><b>Ctrl + #[0-9] - </b>Go to numbered bookmark</p>
+<p><b>Shift + F11 - </b>Show bookmarks</p>
+<br>
+
+<h3>Search/Replace</h3>
+<p><b>Ctrl + F / Ctrl + R - </b>Find/Replace</p>
+<p><b>F3 / Shift + F3 - </b>Find next/previous</p>
+<p><b>Ctrl + Shift + F - </b>Find in path</p>
+<p><b>Ctrl + Shift + R - </b>Replace in path</p>
+<br>
+
+<h3>Usage Search</h3>
+<p><b>Alt + F7 / Ctrl + F7 - </b>Find usages / Find usages in file</p>
+<p><b>Ctrl + Shift + F7 - </b>Highlight usages in file</p>
+<p><b>Ctrl + Alt + F7 - </b>Show usages</p>
+<br>
+
+<h3>Refactoring</h3>
+<p><b>F5 / F6 - </b>Copy / Move</p>
+<p><b>Alt + Delete - </b>Safe Delete</p>
+<p><b>Shift + F6 - </b>Rename</p>
+<p><b>Ctrl + F6 - </b>Change Signature</p>
+<p><b>Ctrl + Alt + N - </b>Inline</p>
+<p><b>Ctrl + Alt + M - </b>Extract Method</p>
+<p><b>Ctrl + Alt + V - </b>Extract Variable</p>
+<p><b>Ctrl + Alt + F - </b>Extract Field</p>
+<p><b>Ctrl + Alt + C - </b>Extract Constant </p>
+<p><b>Ctrl + Alt + P - </b>Extract Parameter</p>
+<br>
+
+<h3>VCS/Local History</h3>
+<p><b>Ctrl + K - </b>Commit project to VCS</p>
+<p><b>Ctrl + T - </b>Update project from VCS</p>
+<p><b>Alt + Shift + C - </b>View recent changes</p>
+<p><b>Alt + BackQuote (`) - </b>‘VCS’ quick popup</p>
+<br>
+
+<h3>Live Templates</h3>
+<p><b>Ctrl + Alt + J - </b>Surround with Live Template</p>
+<p><b>Ctrl + J - </b>Insert Live Template</p>
+<br>
+
+<h3>General</h3>
+<p><b>Alt + #[0-9] - </b>Open corresponding tool window</p>
+<p><b>Ctrl + S - </b>Save all</p>
+<p><b>Ctrl + Alt + Y - </b>Synchronize</p>
+<p><b>Ctrl + Shift + F12 - </b>Toggle maximizing editor</p>
+<p><b>Alt + Shift + F - </b>Add to Favorites</p>
+<p><b>Alt + Shift + I - </b>Inspect current file with current profile</p>
+<p><b>Ctrl + BackQuote (`) - </b>Quick switch current scheme</p>
+<p><b>Ctrl + Alt + S - </b>Open Settings dialog</p>
+<p><b>Ctrl + Shift + A - </b>Find Action</p>
+<p><b>Ctrl + Tab - </b>Switch between tabs and tool window</p>
+
+---
+_template: page_one_column.html
