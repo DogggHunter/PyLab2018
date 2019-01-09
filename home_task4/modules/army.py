@@ -6,8 +6,32 @@ from itertools import count
 class Squad:
     def __init__(self):
         self.isAlive = True
-        self.units = [Soldier() if random() < 0.5 else Vehicle() for _ in range(CONFIG['num_unit_per_squad'])]
+        self.units = [Factory.create(unit) for unit in Factory.random_unit_gen(CONFIG['num_unit_per_squad'])]
         self.list_for_remove = []
+
+    def attack(self, enemy_squad):
+        for unit in self.units:
+            if unit.attack() and enemy_squad.isAlive:
+                enemy_squad.deal_damage(unit.damage()*CONFIG['multiple_damage'])
+                unit.mod_experience()
+                unit.can_attack = False
+
+    def attack_chance(self):
+        return reduce(lambda x, y: x * y, [unit.attack_chance() for unit in self.units]) ** (1.0 / len(self.units))
+
+    def damage(self):
+        return sum([unit.damage() for unit in self.units])
+
+    def deal_damage(self, dmg):
+        dmg_per_unit = dmg / len(self.units)
+        for unit in self.units:
+            unit.deal_damage(dmg_per_unit)
+            if not unit.isAlive:
+                self.list_for_remove.append(unit)
+        if self.list_for_remove:
+            self.remove_dead_unit()
+        if not self.units:
+            self.isAlive = False
 
     def update(self, tick):
         for unit in self.units:
@@ -17,28 +41,6 @@ class Squad:
         for unit in self.list_for_remove:
             self.units.remove(unit)
         self.list_for_remove.clear()
-
-    def attack(self):
-        return reduce(lambda x, y: x * y, [unit.attack() for unit in self.units]) ** (1.0 / len(self.units))
-
-    def damage(self, strategy=False):
-        return sum([unit.damage(strategy) for unit in self.units])*CONFIG['multiple_damage']
-
-    def deal_damage(self, dmg, enemy_squad=None):
-        if enemy_squad:
-            enemy_squad.deal_damage(dmg)
-        else:
-            dmg_per_unit = dmg / len(self.units)
-            for unit in self.units:
-                unit.deal_damage(dmg_per_unit)
-                if not unit.isAlive:
-                    self.list_for_remove.append(unit)
-
-            if self.list_for_remove:
-                self.remove_dead_unit()
-
-            if not self.units:
-                self.isAlive = False
 
 
 class Army:
@@ -98,12 +100,12 @@ class Army:
         if CONFIG['attack_strategy'] == 'random':
             return choice(self.squads)
         elif CONFIG['attack_strategy'] == 'weakest':
-            return min(self.squads, key=lambda squad: squad.damage(True))
+            return min(self.squads, key=lambda squad: squad.damage())
         elif CONFIG['attack_strategy'] == 'strongest':
-            return max(self.squads, key=lambda squad: squad.damage(True))
+            return max(self.squads, key=lambda squad: squad.damage())
 
     def start_attack(self, enemy_squad: Squad):
         for squad in self.squads:
-            if enemy_squad.isAlive and squad.attack() >= enemy_squad.attack():
-                squad.deal_damage(squad.damage(), enemy_squad)
+            if enemy_squad.isAlive and squad.attack_chance() >= enemy_squad.attack_chance():
+                squad.attack(enemy_squad)
 
