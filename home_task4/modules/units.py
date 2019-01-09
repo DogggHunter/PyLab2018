@@ -1,32 +1,39 @@
 from abc import ABC, abstractmethod
-from random import randint, choice, random
+from random import choice, random
 from functools import reduce
+from modules.UnitMixin import *
+
+
+class Factory:
+    @staticmethod
+    def create(_type):
+        if _type == "Soldier":
+            return Soldier()
+        if _type == "Vehicle":
+            return Vehicle()
+        assert 0, "Bad unit creation: " + _type
+
+    @staticmethod
+    def random_unit_gen(count):
+        types = Unit.__subclasses__()
+        for i in range(count):
+            yield choice(types).__name__
 
 
 class Unit(ABC):
     def __init__(self):
-        self.health = 100.0
-        self.recharge = randint(100, 2000)
-        self.isAlive = True
-        self.can_attack = True
-        self.unit_type = None
-
-    def update(self, tick):
-        if not self.can_attack:
-            self.recharge -= tick
-            if self.recharge <= 0:
-                if self.unit_type == 'vehicle':
-                    self.recharge = randint(1000, 2000)
-                else:
-                    self.recharge = randint(100, 2000)
-                self.can_attack = True
+        pass
 
     @abstractmethod
     def attack(self):
         pass
 
     @abstractmethod
-    def damage(self, strategy):
+    def attack_chance(self):
+        pass
+
+    @abstractmethod
+    def damage(self):
         pass
 
     @abstractmethod
@@ -38,28 +45,22 @@ class Unit(ABC):
         pass
 
 
-class Soldier(Unit):
+class Soldier(UnitMixin, Unit):
     def __init__(self):
         super().__init__()
         self.experience = 0
         self.unit_type = 'soldier'
 
-    def update(self, tick):
-        super().update(tick)
-
     def attack(self):
+        if random() < self.attack_chance() and self.can_attack:
+            return True
+        return False
+
+    def attack_chance(self):
         return 0.5 * (1 + self.health / 100) * randint(50 + self.experience, 100) / 100
 
-    def damage(self, strategy=False):
-        if strategy:
-            return 0.05 + self.experience / 100
-        else:
-            if random() < self.attack() and self.can_attack:
-                self.mod_experience()
-                self.can_attack = False
-                return 0.05 + self.experience / 100
-            else:
-                return 0
+    def damage(self):
+        return 0.05 + self.experience / 100
 
     def deal_damage(self, dmg):
         self.health -= dmg
@@ -70,37 +71,29 @@ class Soldier(Unit):
         if self.experience < 50:
             self.experience += 1
 
+    def update(self, tick):
+        super().update(tick)
 
-class Vehicle(Unit):
+
+class Vehicle(UnitMixin, Unit):
     def __init__(self):
         super().__init__()
-        self.operators = [Soldier() for _ in range(randint(1, 3))]
+        self.operators = [Factory.create("Soldier") for _ in range(randint(1, 3))]
         self.recharge = randint(1000, 2000)
         self.list_for_remove = []
         self.unit_type = 'vehicle'
 
-    def update(self, tick):
-        super().update(tick)
-
-    def remove_dead_soldier(self):
-        for soldier in self.list_for_remove:
-            self.operators.remove(soldier)
-        self.list_for_remove.clear()
-
     def attack(self):
-        return 0.5 * (1 + self.health / 100) * \
-               reduce(lambda x, y: x*y, [soldier.attack() for soldier in self.operators])**(1.0/len(self.operators))
+        if random() < self.attack_chance() and self.can_attack:
+            return True
+        return False
 
-    def damage(self, strategy=False):
-        if strategy:
-            return 0.1 + sum([soldier.experience / 100 for soldier in self.operators])
-        else:
-            if random() < self.attack() and self.can_attack:
-                self.mod_experience()
-                self.can_attack = False
-                return 0.1 + sum([soldier.experience / 100 for soldier in self.operators])
-            else:
-                return 0
+    def attack_chance(self):
+        return 0.5 * (1 + self.health / 100) * \
+               reduce(lambda x, y: x*y, [soldier.attack_chance() for soldier in self.operators])**(1.0/len(self.operators))
+
+    def damage(self):
+        return 0.1 + sum([soldier.experience / 100 for soldier in self.operators])
 
     def deal_damage(self, dmg):
         self.health -= dmg * 0.6
@@ -128,3 +121,10 @@ class Vehicle(Unit):
         for soldier in self.operators:
             soldier.mod_experience()
 
+    def update(self, tick):
+        super().update(tick)
+
+    def remove_dead_soldier(self):
+        for soldier in self.list_for_remove:
+            self.operators.remove(soldier)
+        self.list_for_remove.clear()
