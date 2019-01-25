@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+{% for adt in ads %}
+  <div class="adt">
+    <p class="title">{{ adt.title }}</p>
+    <p class=description>{{ adt.description[:100] }}...</p>
+    <p class="date">{{ adt.date }}</p>
+  </div>
+{% endfor %}
+{% endblock %}
