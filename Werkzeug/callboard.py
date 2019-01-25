@@ -20,7 +20,7 @@ class CallBoard(object):
         ])
 
     def on_callboard(self, request):
-        ads = self.mongo_db.ads_collection.find()
+        ads = self.mongo_db.ads_collection.find().sort('date', pymongo.DESCENDING)
         return self.render_template('callboard.html', ads=ads)
 
     def on_add_adt(self, request):
@@ -28,7 +28,7 @@ class CallBoard(object):
             adt = {
                 "title": request.form['title'],
                 "description": request.form['description'],
-                "date": datetime.strftime(datetime.now(), "%Y.%m.%d %H:%M:%S")
+                "date": datetime.now().replace(microsecond=0)
             }
             self.mongo_db.ads_collection.insert_one(adt)
             return redirect('add')
