@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}add adt{% endblock %}
+{% block body %}
+<h2>Add new adt</h2>
+<form name="form_new_adt" action="" method=post onsubmit="return validate_form()">
+    <p class="form-input">
+        <input type="text" name="title" placeholder="Title" autofocus>
+    </p>
+    <p class="form-input">
+        <textarea name="description" placeholder="Your description…"></textarea>
+    </p>
+    <p class="form-submit">
+        <input type="submit" value="Add adt">
+    </p>
+</form>
+{% endblock %}
+
