@@ -2,7 +2,9 @@
 
 For generate requests use Postman.
 
-For create, update and delete you must autorized. For this send GET or POST request to http://127.0.0.1:5000/login with request body "username=Test&password=123456" for example.
+For create, update and delete you must autorized. 
+
+For this send GET or POST request to http://127.0.0.1:5000/login with request body "username=Test&password=123456" for example.
 
 ### Get posts
 
